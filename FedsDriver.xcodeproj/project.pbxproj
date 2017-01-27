@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5F299DE36544E7E38BB57F2 /* Pods_FedsDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061AFD5476C872E0A3AEB539 /* Pods_FedsDriver.framework */; };
 		FA96F11A1E33315400615789 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F1191E33315400615789 /* AppDelegate.swift */; };
 		FA96F11C1E33315400615789 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F11B1E33315400615789 /* ViewController.swift */; };
 		FA96F11F1E33315400615789 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA96F11D1E33315400615789 /* Main.storyboard */; };
 		FA96F1211E33315400615789 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA96F1201E33315400615789 /* Assets.xcassets */; };
 		FA96F1241E33315400615789 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA96F1221E33315400615789 /* LaunchScreen.storyboard */; };
+		FA96F1301E3332C600615789 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F12F1E3332C600615789 /* LoginViewController.swift */; };
+		FA96F1321E33382E00615789 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F1311E33382E00615789 /* User.swift */; };
+		FA96F1351E3339B300615789 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F1341E3339B300615789 /* API.swift */; };
+		FA96F1371E333F8900615789 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F1361E333F8900615789 /* DeviceInfo.swift */; };
+		FA96F13A1E33463E00615789 /* LocationCoordinateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F1391E33463E00615789 /* LocationCoordinateExtension.swift */; };
+		FA96F13C1E33529D00615789 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F13B1E33529D00615789 /* DictionaryExtension.swift */; };
+		FA96F13E1E335A2A00615789 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F13D1E335A2A00615789 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		061AFD5476C872E0A3AEB539 /* Pods_FedsDriver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FedsDriver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69CDFAEA50B49803943021A0 /* Pods-FedsDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FedsDriver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FedsDriver/Pods-FedsDriver.debug.xcconfig"; sourceTree = "<group>"; };
+		7A5261BE1346392F6EE94868 /* Pods-FedsDriver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FedsDriver.release.xcconfig"; path = "Pods/Target Support Files/Pods-FedsDriver/Pods-FedsDriver.release.xcconfig"; sourceTree = "<group>"; };
 		FA96F1161E33315400615789 /* FedsDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FedsDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96F1191E33315400615789 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA96F11B1E33315400615789 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +33,13 @@
 		FA96F1201E33315400615789 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA96F1231E33315400615789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA96F1251E33315400615789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA96F12F1E3332C600615789 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FA96F1311E33382E00615789 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA96F1341E3339B300615789 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		FA96F1361E333F8900615789 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		FA96F1391E33463E00615789 /* LocationCoordinateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCoordinateExtension.swift; sourceTree = "<group>"; };
+		FA96F13B1E33529D00615789 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		FA96F13D1E335A2A00615789 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F299DE36544E7E38BB57F2 /* Pods_FedsDriver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AC73919A03C955C73AB6CE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				061AFD5476C872E0A3AEB539 /* Pods_FedsDriver.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA96F10D1E33315300615789 = {
 			isa = PBXGroup;
 			children = (
 				FA96F1181E33315400615789 /* FedsDriver */,
 				FA96F1171E33315400615789 /* Products */,
+				FF9435CABA0D136111F70995 /* Pods */,
+				4AC73919A03C955C73AB6CE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +83,11 @@
 		FA96F1181E33315400615789 /* FedsDriver */ = {
 			isa = PBXGroup;
 			children = (
+				FA96F1381E33462100615789 /* Extensions */,
+				FA96F1331E3339B300615789 /* Networking */,
+				FA96F12D1E33328100615789 /* CustomCells */,
+				FA96F12C1E33327A00615789 /* Model */,
+				FA96F12B1E33326F00615789 /* ViewControllers */,
 				FA96F1191E33315400615789 /* AppDelegate.swift */,
 				FA96F11B1E33315400615789 /* ViewController.swift */,
 				FA96F11D1E33315400615789 /* Main.storyboard */,
@@ -64,6 +98,65 @@
 			path = FedsDriver;
 			sourceTree = "<group>";
 		};
+		FA96F12B1E33326F00615789 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA96F12F1E3332C600615789 /* LoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA96F12C1E33327A00615789 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA96F1311E33382E00615789 /* User.swift */,
+				FA96F1361E333F8900615789 /* DeviceInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA96F12D1E33328100615789 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				FA96F12E1E33328100615789 /* TableView */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		FA96F12E1E33328100615789 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		FA96F1331E3339B300615789 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FA96F1341E3339B300615789 /* API.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		FA96F1381E33462100615789 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA96F1391E33463E00615789 /* LocationCoordinateExtension.swift */,
+				FA96F13B1E33529D00615789 /* DictionaryExtension.swift */,
+				FA96F13D1E335A2A00615789 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FF9435CABA0D136111F70995 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69CDFAEA50B49803943021A0 /* Pods-FedsDriver.debug.xcconfig */,
+				7A5261BE1346392F6EE94868 /* Pods-FedsDriver.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA96F1281E33315400615789 /* Build configuration list for PBXNativeTarget "FedsDriver" */;
 			buildPhases = (
+				79A442B1701A80FE1B055674 /* [CP] Check Pods Manifest.lock */,
 				FA96F1121E33315300615789 /* Sources */,
 				FA96F1131E33315300615789 /* Frameworks */,
 				FA96F1141E33315300615789 /* Resources */,
+				A781B24B2B06DDACAEA6B393 /* [CP] Embed Pods Frameworks */,
+				EB9E39B10367E9BBA30EBF01 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +227,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		79A442B1701A80FE1B055674 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A781B24B2B06DDACAEA6B393 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FedsDriver/Pods-FedsDriver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB9E39B10367E9BBA30EBF01 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FedsDriver/Pods-FedsDriver-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA96F1121E33315300615789 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA96F1321E33382E00615789 /* User.swift in Sources */,
+				FA96F1371E333F8900615789 /* DeviceInfo.swift in Sources */,
+				FA96F13E1E335A2A00615789 /* UIViewControllerExtension.swift in Sources */,
+				FA96F13A1E33463E00615789 /* LocationCoordinateExtension.swift in Sources */,
+				FA96F1301E3332C600615789 /* LoginViewController.swift in Sources */,
 				FA96F11C1E33315400615789 /* ViewController.swift in Sources */,
 				FA96F11A1E33315400615789 /* AppDelegate.swift in Sources */,
+				FA96F1351E3339B300615789 /* API.swift in Sources */,
+				FA96F13C1E33529D00615789 /* DictionaryExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +407,7 @@
 		};
 		FA96F1291E33315400615789 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69CDFAEA50B49803943021A0 /* Pods-FedsDriver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FedsDriver/Info.plist;
@@ -268,6 +420,7 @@
 		};
 		FA96F12A1E33315400615789 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A5261BE1346392F6EE94868 /* Pods-FedsDriver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FedsDriver/Info.plist;
@@ -297,6 +450,7 @@
 				FA96F12A1E33315400615789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
