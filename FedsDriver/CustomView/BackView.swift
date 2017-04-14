@@ -8,14 +8,14 @@
 
 import UIKit
 
-class BackView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+@IBDesignable class BackView: UIView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let im = UIImageView(frame: UIScreen.main.bounds)
+        im.image = UIImage(named: "pattern")
+        im.contentMode = .scaleAspectFill
+        insertSubview(im, at: 0)
+        im.backgroundColor = .red
     }
-    */
 
 }

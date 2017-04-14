@@ -7,29 +7,63 @@
 //
 
 import UIKit
+import Eureka
+import MapKit
 
-class OrderViewController: UIViewController {
-
+class OrderViewController: FormViewController {
+  var order: Order!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var actionButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupForm()
+        addLocation()
+        actionButton.setTitle(order.status.rawValue, for: .normal)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupForm() {
+        form +++ Section()
+        
+            <<< LocationTitleRow {
+                $0.value = order.fromAddress.address
+                $0.type = .source
+        }
+            <<< LocationTitleRow {
+                $0.value = order.toAddress.address
+                $0.type = .destination
+        
+        }
     }
-    */
+    @IBAction func actionTapped(_ sender: UIButton) {
+        sender.isEnabled = false
+        order.action().responseJSON {[weak self] response in
+            if let error = response.result.error {
+                print(error.localizedDescription)
+                return
+            }
+            sender.setTitle(self?.order.status.rawValue, for: .normal)
+            sender.isEnabled = true
+        }
+    }
+    
+    private func addLocation() {
+        let sourceAnnotation = MKPointAnnotation(order.fromAddress)
+        let destinationAnnotation = MKPointAnnotation(order.toAddress)
+        mapView.addAnnotations([sourceAnnotation, destinationAnnotation])
+    }
+}
 
+extension MKPointAnnotation {
+    convenience init(_ address: DeliveryAddress) {
+        self.init()
+        title = address.address
+        coordinate = address.coordinate
+    }
+}
+
+extension OrderViewController : MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let view = mapView.view(for: annotation) { return view }
+        return MKPinAnnotationView(annotation: annotation, reuseIdentifier: "view")
+    }
 }

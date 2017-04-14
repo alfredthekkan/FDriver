@@ -1,4 +1,4 @@
-//
+ //
 //  OrderListViewController.swift
 //  FedsDriver
 //
@@ -9,27 +9,28 @@
 import UIKit
 
 class OrderListViewController: UIViewController {
+    
+    var content: TableViewDelegate<Order, OrderTableViewCell>!
+    @IBOutlet weak var tableView: UITableView!
 
+    //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        content = TableViewDelegate(tableview: tableView)
+        content.onSelect{ [weak self] order in
+            if let welf = self {
+                let orderViewController = welf.storyboard!.instantiateViewController(withIdentifier: OrderViewController.identifier) as! OrderViewController
+                orderViewController.order = order
+                welf.navigationController?.pushViewController(orderViewController, animated: true)
+            }
+            }.onCellSetup{ order, cell in
+                cell.setOrder(order)
+        }
+        Order.fetch{ [weak self] orders, error in
+            self?.content.models = orders
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+

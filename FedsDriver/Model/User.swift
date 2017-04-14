@@ -45,6 +45,17 @@ extension User {
             User.current = response.result.value
         }
     }
+    /*
+    func startOrder(order: Order){
+        let URL = API.Url!.appendingPathComponent("takeorder")
+        var params = ["accessToken": User.current.accessToken, "order_tokenid":order.orderTokenId, "order_pk": order.orderPk]
+        SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default)
+    }
+    func finishOrder() {
+        let URL = API.Url!.appendingPathComponent("endorder")
+        var params = ["accessToken": User.current.accessToken, "order_tokenid":order.orderTokenId, "order_pk": order.orderPk]
+        SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default)
+    }*/
 }
 
 extension User: Mappable {

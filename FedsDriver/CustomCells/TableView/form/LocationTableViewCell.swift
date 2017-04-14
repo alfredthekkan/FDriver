@@ -42,7 +42,3 @@ final class LocationTitleRow: Row<LocationTableViewCell>, RowType {
     }
 }
 
-public enum LocationType: String {
-    case source = "from"
-    case destination = "to"
-}

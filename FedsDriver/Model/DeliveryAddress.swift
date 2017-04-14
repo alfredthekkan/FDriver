@@ -110,3 +110,8 @@ extension DeliveryAddress.Distance.GRow.GElement.GDElement: Mappable {
         value <- map["value"]
     }
 }
+
+public enum LocationType: String {
+    case source = "from"
+    case destination = "to"
+}

@@ -14,35 +14,46 @@ class LoginViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         setupForm()
+        
+        printFonts()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     private func setupForm() {
         form +++ Section()
-            <<< LabelRow {
-                $0.value = "Username"
+            <<< FDTextRow("username") {
+                $0.placeHolder = "username"
             }
-            <<< TextRow("username") { row in
             
-        }
-            <<< LabelRow {
-                $0.value = "Password"
+            <<< FDTextRow("password") {
+                $0.placeHolder = "password"
+                $0.isSecureTextEntry = true
             }
-            <<< TextRow("password") { row in
-                
-        }
-            <<< ButtonRow{ row in
-                row.title = "Login"
-                }.onCellSelection{[weak self] cell, row in
-                    self?.next()
-        }
+            
+            <<< FDButtonRow { [weak self] in
+                $0.action = { self?.next() }
+                $0.value = "Login"
+            }
     }
     
     //MARK: - User interaction
     func next() {
-        let username = form.rowBy(tag: "username")!.baseValue
-        let password = form.rowBy(tag: "password")!.baseValue
-        var values:[String:Any] = ["username":username!, "password":password!]
+        if !form.validate().isEmpty { return }
+        var values = form.values().flatten()
         let _ = firstly {
             return CLLocationManager.promise()
             }.then{ location -> Void in
@@ -50,8 +61,10 @@ class LoginViewController: FormViewController {
                 User.login(values).response{[weak self] response in
                     if let error = response.error {
                         print(error.localizedDescription)
+                        
                         return
                     }
+                    User.current.location = location.coordinate
                     if let id = self?.defaultStoryBoardIdentifier {
                         self?.performSegue(withIdentifier: id, sender: nil)
                     }

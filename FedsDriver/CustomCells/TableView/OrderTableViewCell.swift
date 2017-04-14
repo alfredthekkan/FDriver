@@ -10,6 +10,11 @@ import UIKit
 
 class OrderTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var datelabel        : UILabel!
+    @IBOutlet weak var sourceLabel      : UILabel!
+    @IBOutlet weak var destinationLabel : UILabel!
+    @IBOutlet weak var referenceLabel   : UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +25,19 @@ class OrderTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    //MARK: - Public methods
+    func setOrder(_ order: Order) {
+        sourceLabel.text = order.fromAddress.address
+        destinationLabel.text = order.toAddress.address
+        datelabel.text = order.orderDateTime?.toString
+        referenceLabel.text = "Ref# " + order.orderTokenId!
+    }
 
+}
+
+extension NSObject {
+    var identifier: String {
+        return "test"
+    }
 }
