@@ -23,7 +23,7 @@ class Order {
     var payment         :Payment?
     var distance        :Double!
     var fromAddress     :DeliveryAddress{ return _addresses[0] }
-    var toAddress       :DeliveryAddress{ return _addresses[1] }
+    var toAddress       :DeliveryAddress?{ return _addresses.count > 1 ? _addresses[1] : nil }
     var _addresses      :[DeliveryAddress]!
     var status          :OrderStatus = .undefined
     required init?(map: Map) {}

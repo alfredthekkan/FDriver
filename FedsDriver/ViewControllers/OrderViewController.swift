@@ -29,7 +29,7 @@ class OrderViewController: FormViewController {
                 $0.type = .source
         }
             <<< LocationTitleRow {
-                $0.value = order.toAddress.address
+                $0.value = order.toAddress?.address
                 $0.type = .destination
         
         }
@@ -47,9 +47,14 @@ class OrderViewController: FormViewController {
     }
     
     private func addLocation() {
+        var annotations = [MKAnnotation]()
         let sourceAnnotation = MKPointAnnotation(order.fromAddress)
-        let destinationAnnotation = MKPointAnnotation(order.toAddress)
-        mapView.addAnnotations([sourceAnnotation, destinationAnnotation])
+        annotations.append(sourceAnnotation)
+        if let address = order.toAddress {
+            let destinationAnnotation = MKPointAnnotation(address)
+            annotations.append(destinationAnnotation)
+        }
+        mapView.addAnnotations(annotations)
     }
 }
 

@@ -29,7 +29,7 @@ class OrderTableViewCell: UITableViewCell {
     //MARK: - Public methods
     func setOrder(_ order: Order) {
         sourceLabel.text = order.fromAddress.address
-        destinationLabel.text = order.toAddress.address
+        destinationLabel.text = order.toAddress?.address
         datelabel.text = order.orderDateTime?.toString
         referenceLabel.text = "Ref# " + order.orderTokenId!
     }

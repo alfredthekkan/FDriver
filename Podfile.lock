@@ -24,6 +24,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.1.3):
     - PromiseKit/CorePromise
+  - SwiftLoader (0.2.5)
 
 DEPENDENCIES:
   - ACFloatingTextfield-Swift (from `https://github.com/ErAbhishekChandani/ACFloatingTextfield.git`)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - PromiseKit (~> 4.0)
   - PromiseKit/CoreLocation
   - PromiseKit/UIKit (~> 4.0)
+  - SwiftLoader
 
 EXTERNAL SOURCES:
   ACFloatingTextfield-Swift:
@@ -52,7 +54,8 @@ SPEC CHECKSUMS:
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   PromiseKit: 56baec63efa89210c023260879435a5a6b3bff00
+  SwiftLoader: 12d7a6f661f5e9a2c9a72003e7dd6162f4ff0cc4
 
-PODFILE CHECKSUM: 9fdbc76644695f22eff298c57360f00249324112
+PODFILE CHECKSUM: ac63dafbdb8387d585877f7091549028829c2915
 
 COCOAPODS: 1.0.1

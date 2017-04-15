@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import PromiseKit
+import SwiftLoader
 
 class LoginViewController: FormViewController {
 
@@ -19,7 +20,6 @@ class LoginViewController: FormViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         setupForm()
         
-        printFonts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,8 +60,7 @@ class LoginViewController: FormViewController {
                 values += location.coordinate.values()
                 User.login(values).response{[weak self] response in
                     if let error = response.error {
-                        print(error.localizedDescription)
-                        
+                        self?.show(error: error)
                         return
                     }
                     User.current.location = location.coordinate
@@ -76,3 +75,16 @@ class LoginViewController: FormViewController {
     }
 }
 
+protocol AlertShowable {
+    func show(error: Error);
+}
+
+extension UIViewController: AlertShowable {
+    func show(error: Error) {
+        let message = (error as NSError).domain
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+}
