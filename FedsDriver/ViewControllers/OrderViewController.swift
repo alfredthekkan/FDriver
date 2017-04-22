@@ -1,4 +1,4 @@
-//
+   //
 //  OrderViewController.swift
 //  FedsDriver
 //
@@ -9,16 +9,20 @@
 import UIKit
 import Eureka
 import MapKit
+import Alamofire
 
 class OrderViewController: FormViewController {
   var order: Order!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var actionButton: UIButton!
+    
+    var orderCompletionBlock: (() -> ())?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
         addLocation()
-        actionButton.setTitle(order.status.rawValue, for: .normal)
+        
+        actionButton.setTitle(order.status.statusText(), for: .normal)
     }
     
     func setupForm() {
@@ -36,13 +40,30 @@ class OrderViewController: FormViewController {
     }
     @IBAction func actionTapped(_ sender: UIButton) {
         sender.isEnabled = false
+        showLoader()
         order.action().responseJSON {[weak self] response in
+            self?.hideLoader()
             if let error = response.result.error {
-                print(error.localizedDescription)
+                self?.show(error: error)
                 return
             }
-            sender.setTitle(self?.order.status.rawValue, for: .normal)
-            sender.isEnabled = true
+            
+            self?.order.status.next()
+            if self?.order.status == .finished {
+                self?.orderCompletionBlock?()
+                let _ = self?.navigationController?.popViewController(animated: true)
+                
+            }else {
+                if let data = response.result.value as? [String: Any] {
+                    if let dict = data["data"] as? [String: Any] {
+                        if let message = dict["message"] as? String {
+                            self?.showMessage(message)
+                        }
+                    }
+                }
+                sender.setTitle(self?.order.status.statusText(), for: .normal)
+                sender.isEnabled = true
+            }
         }
     }
     

@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 import ACFloatingTextfield_Swift
 
-final class FDTextFieldTableViewCell: Cell<String>, CellType{
+final class FDTextFieldTableViewCell: Cell<String>, CellType, UITextFieldDelegate{
     
     @IBOutlet weak var textField: ACFloatingTextfield!
     
@@ -30,16 +30,29 @@ final class FDTextFieldTableViewCell: Cell<String>, CellType{
     override func update() {
         super.update()
         guard let row = self.row as? FDTextRow else { return }
-        textField.text = row.text
+        textField.text = row.value
         textField.placeholder = row.placeHolder
         textField.isSecureTextEntry = row.isSecureTextEntry
+        textField.delegate = self
         super.update()
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let row = self.row as? FDTextRow else {
+            return true
+        }
+        row.value = textField.text != nil ? textField.text! + string : ""
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let row = self.row as? FDTextRow else {
+            return
+        }
+        row.value = textField.text != nil ? textField.text : ""
     }
 }
 
-extension FDTextFieldTableViewCell: UITextFieldDelegate {
-    
-}
+
 
 final class FDTextRow: Row<FDTextFieldTableViewCell>, RowType {
     required init(tag: String?) {
@@ -47,14 +60,5 @@ final class FDTextRow: Row<FDTextFieldTableViewCell>, RowType {
         cellProvider = CellProvider<FDTextFieldTableViewCell>(nibName: FDTextFieldTableViewCell.identifier)
     }
     var placeHolder: String?
-    var text: String?
     var isSecureTextEntry = false
-    
-    override var value : String? {
-        get {
-            return cell.textField.text
-        }set{
-            self.value = newValue
-        }
-    }
 }

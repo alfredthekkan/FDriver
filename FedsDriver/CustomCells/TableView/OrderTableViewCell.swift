@@ -15,6 +15,7 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var destinationLabel : UILabel!
     @IBOutlet weak var referenceLabel   : UILabel!
     
+    @IBOutlet weak var destinationStackView: UIStackView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,7 +30,11 @@ class OrderTableViewCell: UITableViewCell {
     //MARK: - Public methods
     func setOrder(_ order: Order) {
         sourceLabel.text = order.fromAddress.address
-        destinationLabel.text = order.toAddress?.address
+        if let destination = order.toAddress?.address {
+            destinationLabel.text = destination
+        }else {
+            destinationStackView.isHidden = true
+        }
         datelabel.text = order.orderDateTime?.toString
         referenceLabel.text = "Ref# " + order.orderTokenId!
     }

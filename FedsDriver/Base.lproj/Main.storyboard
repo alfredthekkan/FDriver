@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DGC-QC-Z7L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DGC-QC-Z7L">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -59,73 +59,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="135" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6jV-50-i55">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="SX8-Bq-5Ca" customClass="OrderTableViewCell" customModule="FedsDriver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="135"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SX8-Bq-5Ca" id="AC2-QC-Who">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today 9 AM" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0H-Qa-BBV">
-                                                    <rect key="frame" x="8" y="8" width="349" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jWC-VS-Z7a">
-                                                    <rect key="frame" x="8" y="37" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="4PY-y4-Nt2"/>
-                                                        <constraint firstAttribute="width" constant="30" id="SJj-wz-4J9"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mushrif mall abu dhabi" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgv-7v-ocy">
-                                                    <rect key="frame" x="56" y="84" width="301" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="csV-FQ-rOv">
-                                                    <rect key="frame" x="8" y="79" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="iiA-2Z-V4K"/>
-                                                        <constraint firstAttribute="width" constant="30" id="s1z-f7-7Dy"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dierra city center" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEE-sf-O1v">
-                                                    <rect key="frame" x="56" y="42" width="301" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="f0H-Qa-BBV" firstAttribute="leading" secondItem="AC2-QC-Who" secondAttribute="leadingMargin" id="0kH-OV-JXY"/>
-                                                <constraint firstItem="rgv-7v-ocy" firstAttribute="leading" secondItem="csV-FQ-rOv" secondAttribute="trailing" constant="18" id="1NL-XX-4nd"/>
-                                                <constraint firstItem="aEE-sf-O1v" firstAttribute="top" secondItem="f0H-Qa-BBV" secondAttribute="bottom" constant="13" id="2NG-gg-G5n"/>
-                                                <constraint firstItem="aEE-sf-O1v" firstAttribute="leading" secondItem="jWC-VS-Z7a" secondAttribute="trailing" constant="18" id="3iq-jv-Zoi"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rgv-7v-ocy" secondAttribute="bottom" constant="21" id="6Cr-gV-5SK"/>
-                                                <constraint firstItem="f0H-Qa-BBV" firstAttribute="top" secondItem="AC2-QC-Who" secondAttribute="topMargin" id="QXO-fD-bfH"/>
-                                                <constraint firstItem="jWC-VS-Z7a" firstAttribute="top" secondItem="f0H-Qa-BBV" secondAttribute="bottom" constant="8" id="TfX-cJ-oew"/>
-                                                <constraint firstItem="csV-FQ-rOv" firstAttribute="top" secondItem="jWC-VS-Z7a" secondAttribute="bottom" constant="12" id="Tfx-ir-3gS"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="f0H-Qa-BBV" secondAttribute="trailing" constant="10" id="gUF-zz-z4E"/>
-                                                <constraint firstItem="aEE-sf-O1v" firstAttribute="trailing" secondItem="f0H-Qa-BBV" secondAttribute="trailing" id="q1y-2S-kDY"/>
-                                                <constraint firstItem="csV-FQ-rOv" firstAttribute="leading" secondItem="jWC-VS-Z7a" secondAttribute="leading" id="ri9-uJ-Iha"/>
-                                                <constraint firstItem="rgv-7v-ocy" firstAttribute="trailing" secondItem="aEE-sf-O1v" secondAttribute="trailing" id="sxR-xH-eE4"/>
-                                                <constraint firstItem="jWC-VS-Z7a" firstAttribute="leading" secondItem="f0H-Qa-BBV" secondAttribute="leading" id="vRU-td-cxF"/>
-                                                <constraint firstItem="rgv-7v-ocy" firstAttribute="top" secondItem="aEE-sf-O1v" secondAttribute="bottom" constant="21" id="xRq-7b-nXd"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="datelabel" destination="f0H-Qa-BBV" id="j5d-il-UCf"/>
-                                            <outlet property="destinationLabel" destination="rgv-7v-ocy" id="4kH-2V-ztK"/>
-                                            <outlet property="sourceLabel" destination="aEE-sf-O1v" id="i2V-6h-Ctn"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,7 +86,7 @@
                         <viewControllerLayoutGuide type="top" id="epG-bq-p17"/>
                         <viewControllerLayoutGuide type="bottom" id="NMv-Q0-thR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LTb-rH-snV" customClass="BackView" customModule="FedsDriver" customModuleProvider="target">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="LTb-rH-snV" customClass="BackView" customModule="FedsDriver" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

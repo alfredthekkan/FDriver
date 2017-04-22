@@ -14,7 +14,7 @@ import ObjectMapper
 class Order {
     var mobile          :String?
     var orderDateTime   :Date?
-    var orderPk         :String?
+    var orderPk         :Double?
     var orderTokenId    :String?
     var price           :Double?
     var statusName      :String?
@@ -30,7 +30,37 @@ class Order {
     init() {}
     
     enum OrderStatus: String {
-        case pending, started, finished, undefined
+        case assigned = "ASG"
+        
+        case started = "ONG"
+        
+        case finished = "CMT"
+        
+        case undefined
+        
+        mutating func next() {
+            switch self {
+            case .assigned:
+                self = .started
+            case .started:
+                self = .finished
+            default:
+                print("default case")
+            }
+        }
+        
+        func statusText() -> String {
+            var text = ""
+            switch self {
+            case .assigned:
+                text = "Start"
+            case .started:
+                text = "End"
+            default:
+                print("default case")
+            }
+            return text
+        }
     }
 }
 
@@ -42,13 +72,20 @@ extension Order: Mappable {
         orderPk         <- map["order_pk"]
         orderTokenId    <- map["order_tokenid"]
         price           <- map["price"]
-        status          <- map["status"]
+        status          <- map["status_identity"]
         statusName      <- map["status_name"]
         userName        <- map["username"]
         service         <- map["product_name"]
         distance        <- map["distance"]
         _addresses      <- map["addresslist"]
     
+    }
+}
+
+// Equatable Conformance
+extension Order: Equatable {
+    public static func ==(lhs: Order, rhs: Order) -> Bool {
+        return lhs.orderTokenId == rhs.orderTokenId
     }
 }
 
@@ -61,7 +98,7 @@ extension Order  {
         params += User.current.location.values()
         params += DeviceInfo.values
         print(params)
-        return SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validate().responseArray(keyPath: "data.orders") {(response : DataResponse<[Order]>) in
+        return SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validateErrors().responseArray(keyPath: "data.orders") {(response : DataResponse<[Order]>) in
             if let error = response.result.error {
                 completionHandler(nil, error)
                 return
@@ -72,24 +109,22 @@ extension Order  {
     
     private func start() -> Alamofire.DataRequest {
         let URL = API.Url!.appendingPathComponent("takeorder")
-        let params = ["accessToken": User.current.accessToken, "order_tokenid":orderTokenId, "order_pk":orderPk]
-        return SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).response{ [ weak self] response in
+        let params = ["accessToken": User.current.accessToken, "order_tokenid":orderTokenId, "order_pk":orderPk] as [String : Any?]
+        return SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validateErrors().response{ [ weak self] response in
             if let _ = response.error { return }
-            self?.status = .started
         }
     }
     
     private func end() -> Alamofire.DataRequest {
         let URL = API.Url!.appendingPathComponent("endorder")
-        let params = ["accessToken": User.current.accessToken, "order_tokenid":orderTokenId, "order_pk":orderPk]
-        return SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).response{ [ weak self] response in
+        let params = ["accessToken": User.current.accessToken, "order_tokenid":orderTokenId, "order_pk":orderPk] as [String : Any?]
+        return SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validateErrors().response{ [ weak self] response in
             if let _ = response.error { return }
-            self?.status = .finished
         }
     }
     
     func action() -> Alamofire.DataRequest {
-        if status == .pending {
+        if status == .assigned {
             return start()
         }
         return end()

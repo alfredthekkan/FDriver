@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TableViewDelegate<Model,Cell: UITableViewCell>: NSObject, UITableViewDelegate, UITableViewDataSource{
+class TableViewDelegate<Model: Equatable, Cell: UITableViewCell>: NSObject, UITableViewDelegate, UITableViewDataSource{
     
     typealias ModelBlock = (_ model: Model) -> ()
     typealias ModelCellBlock = (_ model: Model,_ cell: Cell) -> ()
@@ -24,6 +24,10 @@ class TableViewDelegate<Model,Cell: UITableViewCell>: NSObject, UITableViewDeleg
     private var onSelect:ModelBlock?
     private var onCellSetup: ModelCellBlock?
     
+    
+    func reload() {
+        tableView.reloadData()
+    }
     
     init(tableview: UITableView) {
         super.init()
@@ -56,8 +60,11 @@ class TableViewDelegate<Model,Cell: UITableViewCell>: NSObject, UITableViewDeleg
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = models![indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
         onSelect?(model)
     }
+   
+   
 }
 
 

@@ -45,18 +45,13 @@ extension User {
             User.current = response.result.value
         }
     }
-    /*
-    func startOrder(order: Order){
-        let URL = API.Url!.appendingPathComponent("takeorder")
-        var params = ["accessToken": User.current.accessToken, "order_tokenid":order.orderTokenId, "order_pk": order.orderPk]
-        SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default)
+    func logout() -> Alamofire.DataRequest {
+        let URL = API.Url!.appendingPathComponent("logout")
+        let params:[String: Any] = ["accessToken":User.current.accessToken!]
+        return SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validateErrors()
     }
-    func finishOrder() {
-        let URL = API.Url!.appendingPathComponent("endorder")
-        var params = ["accessToken": User.current.accessToken, "order_tokenid":order.orderTokenId, "order_pk": order.orderPk]
-        SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default)
-    }*/
 }
+
 
 extension User: Mappable {
     func mapping(map: Map) {
@@ -80,6 +75,10 @@ extension Alamofire.DataRequest{
         return validate{ _, response, data in
             
             if response.statusCode == 200 {
+                if let data = data {
+                    let str = String(data: data, encoding: .utf8)
+                    print(str)
+                }
                 return .success
             }else{
                 var msg:String? = ""
